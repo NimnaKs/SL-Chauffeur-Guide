@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import HeroSlideshow from "@/components/hero";
 
 export const metadata: Metadata = {
   title: "Sri Lankan Chauffeur Guide",
@@ -16,10 +18,8 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Header />
-        <main className="min-h-screen">{children}</main>
-        <footer className="border-t py-8 text-center text-sm text-gray-500">
-          © {new Date().getFullYear()} Sri Lankan Chauffeur Guide
-        </footer>
+        <HeroSlideshow />
+        <Footer />
       </body>
     </html>
   );
