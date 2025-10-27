@@ -1,8 +1,9 @@
+// app/layout.tsx
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import HeroSlideshow from "@/components/hero";
+import FloatingBadges from "@/components/FloatingBadges";
 
 export const metadata: Metadata = {
   title: "Sri Lankan Chauffeur Guide",
@@ -18,8 +19,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Header />
-        <HeroSlideshow />
+        <main>{children}</main>
         <Footer />
+        <FloatingBadges />
       </body>
     </html>
   );

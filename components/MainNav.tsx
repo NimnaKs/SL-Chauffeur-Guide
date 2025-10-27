@@ -13,10 +13,10 @@ type NavItem = {
 
 const MENU: NavItem[] = [
   { label: "Home", href: "/" },
-  { label: "About Us", href: "/about" },
+  { label: "About Us", href: "/about-us" },
   { label: "Destinations", href: "/destinations" },
   { label: "Gallery", href: "/gallery" },
-  { label: "Contact", href: "/contact" },
+  { label: "Contact", href: "/contact-us" },
 ];
 
 function clsx(...inputs: Array<string | false | null | undefined>) {
@@ -47,10 +47,10 @@ export default function MainNav() {
             <Link
               key={item.label}
               href={item.href!}
-              className="relative px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200 group"
+              className="relative px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors duration-200 group"
             >
               {item.label}
-              <span className="absolute bottom-0 left-4 right-4 h-0.5 bg-blue-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" />
+              <span className="absolute bottom-0 left-4 right-4 h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" />
             </Link>
           ))}
         </nav>
@@ -60,7 +60,7 @@ export default function MainNav() {
           <LanguageSelect />
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center h-[42px] px-4 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-200 shadow-sm hover:shadow-md min-w-[130px]"
+            className="block w-full text-center rounded-lg border border-gray-900 px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-900 hover:text-white transition-all duration-300 shadow-sm"
           >
             Get in Touch
           </Link>
@@ -115,7 +115,7 @@ export default function MainNav() {
               <Link
                 key={item.label}
                 href={item.href!}
-                className="block rounded-lg px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
+                className="block rounded-lg px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors"
                 onClick={() => setOpen(false)}
               >
                 {item.label}
@@ -128,8 +128,8 @@ export default function MainNav() {
             <LanguageSelect />
             <Link
               href="/contact"
-              className="block w-full rounded-lg bg-blue-600 px-5 py-3 text-center text-sm font-medium text-white hover:bg-blue-700 transition-colors shadow-sm"
               onClick={() => setOpen(false)}
+              className="block w-full text-center rounded-lg border border-gray-900 px-6 py-3.5 text-sm font-medium text-gray-900 hover:bg-gray-900 hover:text-white transition-all duration-300 shadow-sm"
             >
               Get in Touch
             </Link>
@@ -196,7 +196,7 @@ function LanguageSelect() {
                 className={clsx(
                   "flex w-full items-center gap-3 px-3 py-2.5 text-sm transition-colors",
                   l.code === lang
-                    ? "bg-blue-50 text-blue-600"
+                    ? "bg-gray-100 text-gray-900"
                     : "text-gray-700 hover:bg-gray-50"
                 )}
               >
