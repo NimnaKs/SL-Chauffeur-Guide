@@ -57,47 +57,49 @@ export default function FeaturedDestinations() {
             Popular Destinations
           </h2>
           <p className="text-base sm:text-lg text-gray-600 font-medium max-w-2xl mx-auto">
-            Discover Sri Lanka's most iconic locations
+            Discover Sri Lanka&apos;s most iconic locations
           </p>
         </div>
 
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {DESTINATIONS.map((dest) => (
-            <a
+            <Link
               key={dest.id}
               href={`#${dest.id}`}
               className="group block rounded-xl overflow-hidden bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300"
             >
-              <div className="relative  overflow-hidden">
-                <img
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image
                   src={dest.image}
                   alt={dest.name}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
                 />
                 <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
 
               <div className="p-5 space-y-1.5">
-                <h3 className="text-lg font-medium text-gray-900 group-hover:text-gray-900 transition-colors">
+                <h3 className="text-lg font-medium text-gray-900 transition-colors">
                   {dest.name}
                 </h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
                   {dest.description}
                 </p>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
 
         {/* CTA Button */}
         <div className="mt-16 text-center">
-          <a
+          <Link
             href="#destinations"
             className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-8 py-3.5 text-sm font-medium text-gray-900 hover:bg-gray-900 hover:text-white transition-all duration-300"
           >
             View All Destinations
-          </a>
+          </Link>
         </div>
       </div>
     </section>
