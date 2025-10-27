@@ -1,6 +1,5 @@
 // app/destinations/page.tsx
 import FeaturedDestinationsPaginated from "@/components/destinations";
-import FeaturedDestinations from "@/components/featured-destinations";
 
 export default function DestinationsPage() {
   return (

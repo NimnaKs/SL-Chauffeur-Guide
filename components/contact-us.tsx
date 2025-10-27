@@ -108,7 +108,7 @@ export default function ContactUs() {
                 <div className="flex items-center gap-3 p-4 bg-green-50 border border-green-200 rounded-2xl animate-fade-in">
                   <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
                   <span className="text-sm text-green-700 font-medium">
-                    Message sent successfully! We'll be in touch soon.
+                    Message sent successfully! We&apos;ll be in touch soon.
                   </span>
                 </div>
               )}
