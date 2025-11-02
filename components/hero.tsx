@@ -20,7 +20,7 @@ const SLIDES: Slide[] = [
   { id: 6, title: "Nuwara Eliya Tea Plantations", image: "/img/img-6.jpg" },
   { id: 7, title: "Yala National Park", image: "/img/img-7.jpg" },
   { id: 8, title: "Anuradhapura Ancient City", image: "/img/img-8.jpg" },
-  { id: 9, title: "Trincomalee Nilaveli Beach", image: "/img/img-9.jpg" },
+  { id: 9, title: "Polonnaruwa Ancient City", image: "/img/img-30.jpg" },
   { id: 10, title: "Adams Peak Sri Pada", image: "/img/img-10.jpg" },
 ];
 

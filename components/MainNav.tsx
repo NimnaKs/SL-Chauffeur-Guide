@@ -155,12 +155,12 @@ function LanguageSelect() {
       code: "DE",
       name: "German",
       flag: "https://flagcdn.com/w20/de.png",
-    },
+    } /*,
     {
       code: "SI",
       name: "Sinhala",
       flag: "https://flagcdn.com/w20/lk.png",
-    },
+    },*/,
   ];
 
   const current = langs.find((l) => l.code === lang)!;

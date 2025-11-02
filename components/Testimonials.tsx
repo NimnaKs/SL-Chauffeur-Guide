@@ -1,29 +1,76 @@
-// components/Testimonials.tsx
+"use client";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
 export type Testimonial = {
   quote: string;
   author: string;
-  meta?: string; // country, trip type, etc.
-  rating?: number; // 1..5
+  meta?: string;
+  rating?: number;
 };
 
 const DEFAULTS: Testimonial[] = [
   {
     quote:
-      "Smooth, safe, and flexible itinerary. Perfect pacing for our family.",
-    author: "A. Müller",
-    meta: "Germany — 7-day tour",
+      "Suresh looked after us so well — courteous, punctual and safe. A knowledgeable guide who made our trip a pleasure.",
+    author: "glendogs",
+    meta: "Grantham, UK · Mar 2018 · Couples",
     rating: 5,
   },
   {
-    quote: "Knew all the best viewpoints in Ella and hidden food stops!",
-    author: "S. Patel",
-    meta: "UK — Hill Country",
+    quote:
+      "Suresh was the best guide and driver we could imagine. His experience, flexibility and warmth made our trip unforgettable.",
+    author: "Janine V",
+    meta: "Netherlands · Jul 2019 · Family",
     rating: 5,
   },
   {
-    quote: "Professional, punctual, and super friendly. Highly recommended.",
-    author: "D. Chan",
-    meta: "Singapore — South Coast",
+    quote:
+      "During our trip, Suresh felt like family — helpful, calm and always making sure we were safe. Highly recommended!",
+    author: "Valerie B",
+    meta: "France · Apr 2019 · Family",
+    rating: 5,
+  },
+  {
+    quote:
+      "Our six-day journey through Sri Lanka was seamless thanks to Suresh’s expertise and attention to detail.",
+    author: "Shiv",
+    meta: "Kuala Lumpur, Malaysia · Mar 2019 · Couples",
+    rating: 5,
+  },
+  {
+    quote:
+      "Best guide ever! Deep local knowledge, speaks perfect English and German. I always felt safe and cared for.",
+    author: "Suse Mergner",
+    meta: "Germany · Dec 2018",
+    rating: 5,
+  },
+  {
+    quote:
+      "We had a fantastic two weeks in Sri Lanka — Suresh ensured everything ran smoothly. 10/10 recommendation.",
+    author: "azbs121",
+    meta: "Chester, UK · Jul 2018 · Couples",
+    rating: 5,
+  },
+  {
+    quote:
+      "Suresh met us at the airport and took care of everything. Friendly, experienced and trustworthy — 100% recommended.",
+    author: "Ozoilo J",
+    meta: "UK · Aug 2018 · Couples",
+    rating: 5,
+  },
+  {
+    quote:
+      "Our honeymoon was made perfect thanks to Suresh’s insight and professionalism. We saw everything we wanted and more.",
+    author: "CSJ",
+    meta: "Cotswolds, UK · Jul 2018 · Couples",
+    rating: 5,
+  },
+  {
+    quote:
+      "Suresh gave us far more than a chauffeur service — a deep cultural journey through Sri Lanka’s history and nature.",
+    author: "Andrea K",
+    meta: "Germany · Apr 2018 · Family",
     rating: 5,
   },
 ];
@@ -33,34 +80,48 @@ export default function Testimonials({
 }: {
   items?: Testimonial[];
 }) {
-  return (
-    <section className="bg-neutral-50/70 py-16">
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
-        <div className="mb-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">
-            Client Testimonials
-          </h2>
-          <p className="mt-2 text-gray-600">
-            Real stories from recent trips around Sri Lanka
-          </p>
-        </div>
+  const [index, setIndex] = useState(0);
 
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {items.map((t, i) => (
-            <figure
-              key={i}
-              className="rounded-xl border border-gray-100 bg-white p-6 shadow-sm hover:shadow-md transition"
+  // Auto-advance every 7 seconds
+  useEffect(() => {
+    const interval = setInterval(
+      () => setIndex((i) => (i + 1) % items.length),
+      7000
+    );
+    return () => clearInterval(interval);
+  }, [items.length]);
+
+  const current = items[index];
+
+  return (
+    <section className="relative overflow-hidden bg-gradient-to-b from-white via-neutral-50/80 to-white py-16">
+      <div className="mx-auto max-w-3xl px-6 text-center">
+        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
+          Client Testimonials
+        </h2>
+        <p className="text-gray-600 mb-8">
+          Real experiences from travelers who explored Sri Lanka with Suresh
+        </p>
+
+        <div className="relative h-60 sm:h-52">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.6 }}
+              className="absolute inset-0 flex flex-col items-center justify-center px-4"
             >
-              {typeof t.rating === "number" && (
-                <div
-                  className="mb-3 flex gap-1"
-                  aria-label={`${t.rating} out of 5 stars`}
-                >
+              {typeof current.rating === "number" && (
+                <div className="mb-2 flex justify-center gap-1">
                   {Array.from({ length: 5 }).map((_, s) => (
                     <svg
                       key={s}
                       className={`h-4 w-4 ${
-                        s < (t.rating ?? 0) ? "text-blue-600" : "text-gray-300"
+                        s < (current.rating ?? 0)
+                          ? "text-yellow-500"
+                          : "text-gray-300"
                       }`}
                       viewBox="0 0 20 20"
                       fill="currentColor"
@@ -70,12 +131,31 @@ export default function Testimonials({
                   ))}
                 </div>
               )}
-              <blockquote className="text-gray-800">“{t.quote}”</blockquote>
-              <figcaption className="mt-3 text-sm text-gray-500">
-                — <span className="font-medium text-gray-900">{t.author}</span>
-                {t.meta ? ` (${t.meta})` : null}
+
+              <blockquote className="text-lg text-gray-800 leading-relaxed max-w-2xl italic">
+                “{current.quote}”
+              </blockquote>
+              <figcaption className="mt-4 text-sm text-gray-500">
+                —{" "}
+                <span className="font-medium text-gray-900">
+                  {current.author}
+                </span>
+                {current.meta ? ` (${current.meta})` : ""}
               </figcaption>
-            </figure>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Controls */}
+        <div className="mt-10 flex justify-center gap-2">
+          {items.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setIndex(i)}
+              className={`h-2 w-2 rounded-full transition-all ${
+                i === index ? "bg-blue-600 w-4" : "bg-gray-300"
+              }`}
+            />
           ))}
         </div>
       </div>
