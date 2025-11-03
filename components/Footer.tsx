@@ -1,5 +1,6 @@
-import Link from "next/link";
+"use client";
 
+import Link from "next/link";
 import { useLanguage } from "@/components/LanguageProvider";
 
 const Footer = () => {
@@ -11,7 +12,9 @@ const Footer = () => {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10 space-y-10">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           <div>
-            <h4 className="text-white font-semibold">{footer.contactHeading}</h4>
+            <h4 className="text-white font-semibold">
+              {footer.contactHeading}
+            </h4>
             <ul className="mt-3 space-y-2 text-sm text-slate-300">
               {footer.addressLines.map((line) => (
                 <li key={line}>{line}</li>
@@ -49,11 +52,16 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-white font-semibold">{footer.exploreHeading}</h4>
+            <h4 className="text-white font-semibold">
+              {footer.exploreHeading}
+            </h4>
             <ul className="mt-3 space-y-2 text-sm">
               {footer.exploreLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="hover:text-white transition">
+                  <Link
+                    href={link.href}
+                    className="hover:text-white transition"
+                  >
                     {link.label}
                   </Link>
                 </li>
