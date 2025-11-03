@@ -1,6 +1,13 @@
+"use client";
+/* eslint-disable @next/next/no-img-element */
+
 import Testimonials from "@/components/Testimonials";
+import { useLanguage } from "@/components/LanguageProvider";
 
 export default function AboutPage() {
+  const { content } = useLanguage();
+  const aboutPage = content.pages.about;
+
   return (
     <section className="bg-white">
       {/* 🌄 Hero Section */}
@@ -14,11 +21,10 @@ export default function AboutPage() {
 
         <div className="relative z-10 h-full flex flex-col justify-end items-center text-center pb-20 lg:pb-24 px-4">
           <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold text-white drop-shadow-lg tracking-tight uppercase">
-            About Us
+            {aboutPage.heroHeading}
           </h1>
           <p className="mt-4 text-base sm:text-lg lg:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
-            Discover Sri Lanka with trusted chauffeur guides — scenic, safe, and
-            truly local.
+            {aboutPage.heroSubheading}
           </p>
         </div>
       </div>
@@ -69,52 +75,35 @@ export default function AboutPage() {
           {/* Right — Text Content */}
           <div className="order-2 lg:order-2 space-y-8">
             <div className="space-y-4">
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">
-                More Than a Driver — Your Local Host
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+                {aboutPage.highlightTitle}
               </h2>
-              <p className="text-gray-700 leading-relaxed">
-                From airport pickups to multi-day tours, we tailor routes to
-                your pace — sharing our favorite backroads, viewpoints, and food
-                stops from Sigiriya to Ella, Kandy to Galle. Expect comfortable
-                AC vehicles, punctual service, and flexible plans.
+              <p className="text-slate-700 leading-relaxed">
+                {aboutPage.highlightBody}
               </p>
             </div>
 
             <ul className="space-y-4 text-sm text-gray-800">
-              <li className="flex items-start gap-4">
-                <span className="mt-2 h-1.5 w-6 rounded-full bg-gray-900/90 flex-shrink-0" />
-                <span>
-                  Private, customizable itineraries for couples, families &
-                  small groups
-                </span>
-              </li>
-              <li className="flex items-start gap-4">
-                <span className="mt-2 h-1.5 w-6 rounded-full bg-gray-900/90 flex-shrink-0" />
-                <span>
-                  Clean, air-conditioned vehicles • Bottled water • Photo stops
-                  on request
-                </span>
-              </li>
-              <li className="flex items-start gap-4">
-                <span className="mt-2 h-1.5 w-6 rounded-full bg-gray-900/90 flex-shrink-0" />
-                <span>
-                  Honest local tips on timing, tickets, and the best viewpoints
-                </span>
-              </li>
+              {aboutPage.bullets.map((bullet) => (
+                <li key={bullet} className="flex items-start gap-4">
+                  <span className="mt-2 h-1.5 w-6 rounded-full bg-emerald-600 flex-shrink-0" />
+                  <span>{bullet}</span>
+                </li>
+              ))}
             </ul>
 
             <div className="flex flex-wrap gap-3 pt-3">
               <a
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-8 py-3.5 text-sm font-medium text-gray-900 hover:bg-gray-900 hover:text-white transition-all duration-300"
+                href="/contact-us"
+                className="inline-flex items-center justify-center rounded-lg border border-emerald-600 px-8 py-3.5 text-sm font-medium text-emerald-700 hover:bg-emerald-600 hover:text-white transition-all duration-300"
               >
-                Get a Custom Quote
+                {aboutPage.primaryCtaLabel}
               </a>
               <a
                 href="/destinations"
-                className="inline-flex items-center justify-center rounded-lg border border-gray-200 bg-gray-50 px-8 py-3.5 text-sm font-medium text-gray-800 hover:border-gray-900 hover:bg-white transition-all duration-300"
+                className="inline-flex items-center justify-center rounded-lg border border-slate-200 bg-slate-50 px-8 py-3.5 text-sm font-medium text-slate-800 hover:border-emerald-600 hover:bg-white transition-all duration-300"
               >
-                Explore Destinations
+                {aboutPage.secondaryCtaLabel}
               </a>
             </div>
           </div>
@@ -124,22 +113,17 @@ export default function AboutPage() {
       {/* 📊 Stats Section */}
       <div className="mx-auto max-w-5xl px-6 lg:px-12 pb-20 lg:pb-32">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-          {[
-            ["8+", "Years guiding"],
-            ["50+", "Trips completed"],
-            ["5★", "Avg. rating"],
-            ["100%", "Custom routes"],
-          ].map(([value, label]) => (
+          {aboutPage.stats.map(({ value, label }) => (
             <div
               key={value}
-              className="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-6 lg:p-8 text-center hover:border-gray-200 transition-all duration-300"
+              className="group relative overflow-hidden rounded-2xl border border-slate-100 bg-white p-6 lg:p-8 text-center hover:border-emerald-200 transition-all duration-300"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="relative">
-                <div className="text-xl lg:text-2xl font-semibold text-gray-900">
+                <div className="text-xl lg:text-2xl font-semibold text-slate-900">
                   {value}
                 </div>
-                <div className="mt-2 text-xs text-gray-600">{label}</div>
+                <div className="mt-2 text-xs text-slate-600">{label}</div>
               </div>
             </div>
           ))}

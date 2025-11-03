@@ -1,7 +1,10 @@
 "use client";
+/* eslint-disable @next/next/no-img-element */
 
 import { useEffect, useState } from "react";
 import { Instagram } from "lucide-react";
+
+import { useLanguage } from "@/components/LanguageProvider";
 
 type FeedPost = {
   id: string;
@@ -34,6 +37,8 @@ const FALLBACK_ITEMS = [
 const FEED_URL = "https://feeds.behold.so/U14s3stbDdDIGlz4xwbt";
 
 export default function SocialGallery() {
+  const { content } = useLanguage();
+  const gallery = content.home.socialGallery;
   const [items, setItems] = useState<
     {
       id: string;
@@ -78,7 +83,7 @@ export default function SocialGallery() {
   }, []);
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-emerald-50 relative overflow-hidden">
       {/* background blurs */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-pink-100 rounded-full blur-3xl opacity-20 -translate-y-1/2 translate-x-1/2" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-100 rounded-full blur-3xl opacity-20 translate-y-1/2 -translate-x-1/2" />
@@ -86,12 +91,11 @@ export default function SocialGallery() {
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
         <div className="mb-16 text-center space-y-3">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight">
-            Follow Our Journey
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight">
+            {gallery.heading}
           </h2>
-          <p className="text-base sm:text-lg text-gray-600 font-medium max-w-2xl mx-auto">
-            Latest real moments from @srilankanchauffeurguide — safaris, hill
-            country, and happy guests
+          <p className="text-base sm:text-lg text-slate-600 font-medium max-w-2xl mx-auto">
+            {gallery.subheading}
           </p>
         </div>
 
@@ -131,18 +135,18 @@ export default function SocialGallery() {
 
         {/* CTA */}
         <div className="mt-16 text-center space-y-6">
-          <p className="text-base text-gray-600 font-medium">
-            See more reels, safaris, and guest moments
+          <p className="text-base text-slate-600 font-medium">
+            {gallery.ctaPrompt}
           </p>
           <div className="flex justify-center gap-4 flex-wrap">
             <a
               href="https://www.instagram.com/srilankanchauffeurguide"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-lg border border-pink-600 bg-pink-600 px-8 py-3.5 text-sm font-medium text-white hover:bg-pink-700 hover:border-pink-700 transition-all duration-300"
+              className="inline-flex items-center justify-center gap-2 rounded-lg border border-emerald-600 bg-emerald-600 px-8 py-3.5 text-sm font-medium text-white hover:bg-emerald-700 hover:border-emerald-700 transition-all duration-300"
             >
               <Instagram className="w-4 h-4" />
-              Follow on Instagram
+              {gallery.ctaLabel}
             </a>
           </div>
         </div>

@@ -3,7 +3,11 @@
 import { useState } from "react";
 import { Mail, Phone, MessageCircle, MapPin } from "lucide-react";
 
+import { useLanguage } from "@/components/LanguageProvider";
+
 export default function ContactUs() {
+  const { content } = useLanguage();
+  const formContent = content.contactForm;
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -41,11 +45,11 @@ export default function ContactUs() {
       <div className="relative mx-auto max-w-5xl px-6 py-20 sm:py-32">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in space-y-3">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight">
-            Contact Us
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight">
+            {formContent.heading}
           </h1>
-          <p className="text-base sm:text-lg text-gray-600 font-medium max-w-2xl mx-auto">
-            Plan your Sri Lanka adventure with us. Get in touch today.
+          <p className="text-base sm:text-lg text-slate-600 font-medium max-w-2xl mx-auto">
+            {formContent.subheading}
           </p>
         </div>
 
@@ -54,61 +58,61 @@ export default function ContactUs() {
           <div className="lg:col-span-1">
             <div className="space-y-6">
               <div className="group">
-                <label className="block text-xs font-medium text-gray-500 mb-2 uppercase tracking-wider">
-                  Your Name
+                <label className="block text-xs font-medium text-slate-500 mb-2 uppercase tracking-wider">
+                  {formContent.fields.name.label}
                 </label>
                 <input
                   type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-0 py-3 text-lg border-0 border-b-2 border-gray-200 focus:border-blue-600 outline-none transition-all bg-transparent placeholder-gray-300"
-                  placeholder="John Doe"
+                  className="w-full px-0 py-3 text-lg border-0 border-b-2 border-slate-200 focus:border-emerald-600 outline-none transition-all bg-transparent placeholder-slate-300"
+                  placeholder={formContent.fields.name.placeholder}
                 />
               </div>
 
               <div className="group">
-                <label className="block text-xs font-medium text-gray-500 mb-2 uppercase tracking-wider">
-                  Email Address
+                <label className="block text-xs font-medium text-slate-500 mb-2 uppercase tracking-wider">
+                  {formContent.fields.email.label}
                 </label>
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-0 py-3 text-lg border-0 border-b-2 border-gray-200 focus:border-blue-600 outline-none transition-all bg-transparent placeholder-gray-300"
-                  placeholder="john@example.com"
+                  className="w-full px-0 py-3 text-lg border-0 border-b-2 border-slate-200 focus:border-emerald-600 outline-none transition-all bg-transparent placeholder-slate-300"
+                  placeholder={formContent.fields.email.placeholder}
                 />
               </div>
 
               <div className="group">
-                <label className="block text-xs font-medium text-gray-500 mb-2 uppercase tracking-wider">
-                  Your Message
+                <label className="block text-xs font-medium text-slate-500 mb-2 uppercase tracking-wider">
+                  {formContent.fields.message.label}
                 </label>
                 <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   rows={5}
-                  className="w-full px-0 py-3 text-lg border-0 border-b-2 border-gray-200 focus:border-blue-600 outline-none transition-all bg-transparent resize-none placeholder-gray-300"
-                  placeholder="Tell us about your dream Sri Lankan adventure..."
+                  className="w-full px-0 py-3 text-lg border-0 border-b-2 border-slate-200 focus:border-emerald-600 outline-none transition-all bg-transparent resize-none placeholder-slate-300"
+                  placeholder={formContent.fields.message.placeholder}
                 />
               </div>
 
               <div className="pt-4">
                 <button
                   onClick={handleSubmit}
-                  className="inline-flex items-center justify-center rounded-lg border border-gray-900 px-8 py-3.5 text-sm font-medium text-gray-900 hover:bg-gray-900 hover:text-white transition-all duration-300"
+                  className="inline-flex items-center justify-center rounded-lg border border-emerald-600 px-8 py-3.5 text-sm font-medium text-emerald-700 hover:bg-emerald-600 hover:text-white transition-all duration-300"
                 >
-                  Send Message
+                  {formContent.submitLabel}
                 </button>
               </div>
 
               {submitted && (
-                <div className="flex items-center gap-3 p-4 bg-green-50 border border-green-200 rounded-2xl animate-fade-in">
+                <div className="flex items-center gap-3 p-4 bg-emerald-50 border border-emerald-200 rounded-2xl animate-fade-in">
                   <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
                   <span className="text-sm text-green-700 font-medium">
-                    Message sent successfully! We&apos;ll be in touch soon.
+                    {formContent.successMessage}
                   </span>
                 </div>
               )}
@@ -118,40 +122,40 @@ export default function ContactUs() {
           {/* Contact Info */}
           <div className="lg:col-span-1 space-y-6">
             <div className="space-y-4">
-              <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-6">
-                Contact Information
+              <h3 className="text-sm font-medium text-slate-500 uppercase tracking-wider mb-6">
+                {formContent.infoHeading}
               </h3>
 
               <a
-                href="tel:+94768539902"
+                href={`tel:${formContent.contactDetails.phoneValue.replace(/\s+/g, "")}`}
                 className="group flex items-start gap-4 p-4 rounded-2xl hover:bg-white transition-all"
               >
                 <div className="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center group-hover:bg-blue-600 transition-colors">
                   <Phone className="w-5 h-5 text-blue-600 group-hover:text-white transition-colors" />
                 </div>
                 <div>
-                  <p className="text-xs font-medium text-gray-500 uppercase tracking-wider mb-1">
-                    Phone
+                  <p className="text-xs font-medium text-slate-500 uppercase tracking-wider mb-1">
+                    {formContent.contactDetails.phoneLabel}
                   </p>
-                  <p className="text-gray-900 group-hover:text-blue-600 transition-colors">
-                    +94 76 853 9902
+                  <p className="text-slate-900 group-hover:text-blue-600 transition-colors">
+                    {formContent.contactDetails.phoneValue}
                   </p>
                 </div>
               </a>
 
               <a
-                href="mailto:slchauffeurguide@gmail.com"
+                href={`mailto:${formContent.contactDetails.emailValue}`}
                 className="group flex items-start gap-4 p-4 rounded-2xl hover:bg-white transition-all"
               >
                 <div className="flex-shrink-0 w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center group-hover:bg-purple-600 transition-colors">
                   <Mail className="w-5 h-5 text-purple-600 group-hover:text-white transition-colors" />
                 </div>
                 <div>
-                  <p className="text-xs font-medium text-gray-500 uppercase tracking-wider mb-1">
-                    Email
+                  <p className="text-xs font-medium text-slate-500 uppercase tracking-wider mb-1">
+                    {formContent.contactDetails.emailLabel}
                   </p>
-                  <p className="text-gray-900 group-hover:text-purple-600 transition-colors break-all">
-                    slchauffeurguide@gmail.com
+                  <p className="text-slate-900 group-hover:text-purple-600 transition-colors break-all">
+                    {formContent.contactDetails.emailValue}
                   </p>
                 </div>
               </a>
@@ -166,11 +170,11 @@ export default function ContactUs() {
                   <MessageCircle className="w-5 h-5 text-green-600 group-hover:text-white transition-colors" />
                 </div>
                 <div>
-                  <p className="text-xs font-medium text-gray-500 uppercase tracking-wider mb-1">
-                    WhatsApp
+                  <p className="text-xs font-medium text-slate-500 uppercase tracking-wider mb-1">
+                    {formContent.contactDetails.whatsappLabel}
                   </p>
-                  <p className="text-gray-900 group-hover:text-green-600 transition-colors">
-                    Chat with us
+                  <p className="text-slate-900 group-hover:text-green-600 transition-colors">
+                    {formContent.contactDetails.whatsappValue}
                   </p>
                 </div>
               </a>
@@ -180,12 +184,11 @@ export default function ContactUs() {
                   <MapPin className="w-5 h-5 text-red-600" />
                 </div>
                 <div>
-                  <p className="text-xs font-medium text-gray-500 uppercase tracking-wider mb-1">
-                    Location
+                  <p className="text-xs font-medium text-slate-500 uppercase tracking-wider mb-1">
+                    {formContent.contactDetails.locationLabel}
                   </p>
-                  <p className="text-sm text-gray-600 leading-relaxed">
-                    151/2/1, Weniwelkatiyagama, Nagoda, Dodangoda, Kalutara
-                    North, Sri Lanka
+                  <p className="text-sm text-slate-600 leading-relaxed">
+                    {formContent.contactDetails.locationValue}
                   </p>
                 </div>
               </div>

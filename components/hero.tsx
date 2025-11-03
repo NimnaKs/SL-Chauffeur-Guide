@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
+import { useLanguage } from "@/components/LanguageProvider";
+
 interface Slide {
   id: number;
   title: string;
@@ -28,6 +30,8 @@ const SLIDES: Slide[] = [
 const TRACK_SLIDES: Slide[] = [...SLIDES, SLIDES[0], SLIDES[1]];
 
 export default function HeroSlideshow() {
+  const { content } = useLanguage();
+  const hero = content.hero;
   const [index, setIndex] = useState(0);
   const [isAuto, setIsAuto] = useState(true);
   const [visible, setVisible] = useState<1 | 2 | 3>(1);
@@ -148,20 +152,18 @@ export default function HeroSlideshow() {
       <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
         <div className="pointer-events-auto text-center px-3 sm:px-4 max-w-3xl">
           <h1 className="text-white text-3xl sm:text-5xl lg:text-6xl font-bold drop-shadow mb-3">
-            Plan Your Sri Lanka Holiday
+            {hero.heading}
           </h1>
           <p className="text-white/90 text-sm sm:text-base lg:text-lg mb-4">
-            Choose your destinations and dates — we’ll send a custom quote.
+            {hero.subheading}
           </p>
 
           {/* Small button only */}
           <Link
-            href="/contact"
-            className="inline-flex items-center justify-center rounded-md
-                       bg-white/90 text-gray-900 text-xs sm:text-sm font-semibold
-                       px-4 py-2 shadow hover:bg-white transition"
+            href="/contact-us"
+            className="inline-flex items-center justify-center rounded-md bg-emerald-500 text-white text-xs sm:text-sm font-semibold px-4 py-2 shadow hover:bg-emerald-600 transition"
           >
-            Get Quote
+            {hero.ctaLabel}
           </Link>
         </div>
       </div>

@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingBadges from "@/components/FloatingBadges";
+import { LanguageProvider } from "@/components/LanguageProvider";
 
 export const metadata: Metadata = {
   title: "Sri Lankan Chauffeur Guide",
@@ -17,11 +18,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <Header />
-        <main>{children}</main>
-        <Footer />
-        <FloatingBadges />
+      <body className="bg-stone-50 text-slate-900 antialiased">
+        <LanguageProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+          <FloatingBadges />
+        </LanguageProvider>
       </body>
     </html>
   );
