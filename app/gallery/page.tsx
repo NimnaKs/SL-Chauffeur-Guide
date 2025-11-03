@@ -1,7 +1,12 @@
 "use client";
+/* eslint-disable @next/next/no-img-element */
+
+"use client";
 
 import { useEffect, useState } from "react";
 import { Instagram } from "lucide-react";
+
+import { useLanguage } from "@/components/LanguageProvider";
 
 type FeedPost = {
   id: string;
@@ -19,6 +24,8 @@ type FeedPost = {
 const FEED_URL = "https://feeds.behold.so/U14s3stbDdDIGlz4xwbt";
 
 export default function GalleryPage() {
+  const { content } = useLanguage();
+  const page = content.pages.gallery;
   const [items, setItems] = useState<
     { id: string; image: string; caption: string; link: string }[]
   >([]);
@@ -67,11 +74,10 @@ export default function GalleryPage() {
 
         <div className="relative z-10 h-full flex flex-col justify-end items-center text-center pb-20 lg:pb-24 px-4">
           <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold text-white drop-shadow-lg tracking-tight uppercase">
-            Gallery
+            {page.heroHeading}
           </h1>
           <p className="mt-4 text-base sm:text-lg lg:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
-            Moments from across the island — safaris, hill country, and happy
-            guests.
+            {page.heroSubheading}
           </p>
         </div>
       </div>
@@ -114,16 +120,16 @@ export default function GalleryPage() {
         {/* CTA */}
         <div className="mt-16 text-center space-y-6">
           <p className="text-base text-gray-600 font-medium">
-            See more reels, safaris, and guest moments
+            {page.ctaPrompt}
           </p>
           <a
             href="https://www.instagram.com/srilankanchauffeurguide"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-lg border border-pink-600 bg-pink-600 px-8 py-3.5 text-sm font-medium text-white hover:bg-pink-700 hover:border-pink-700 transition-all duration-300"
+            className="inline-flex items-center justify-center gap-2 rounded-lg border border-emerald-600 bg-emerald-600 px-8 py-3.5 text-sm font-medium text-white hover:bg-emerald-700 hover:border-emerald-700 transition-all duration-300"
           >
             <Instagram className="w-4 h-4" />
-            Follow on Instagram
+            {page.ctaLabel}
           </a>
         </div>
       </div>

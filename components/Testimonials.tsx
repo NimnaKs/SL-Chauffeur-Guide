@@ -2,6 +2,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+import { useLanguage } from "@/components/LanguageProvider";
+
 export type Testimonial = {
   quote: string;
   author: string;
@@ -80,6 +82,8 @@ export default function Testimonials({
 }: {
   items?: Testimonial[];
 }) {
+  const { content } = useLanguage();
+  const testimonials = content.home.testimonials;
   const [index, setIndex] = useState(0);
 
   // Auto-advance every 7 seconds
@@ -96,11 +100,11 @@ export default function Testimonials({
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-white via-neutral-50/80 to-white py-16">
       <div className="mx-auto max-w-3xl px-6 text-center">
-        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
-          Client Testimonials
+        <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-3">
+          {testimonials.heading}
         </h2>
-        <p className="text-gray-600 mb-8">
-          Real experiences from travelers who explored Sri Lanka with Suresh
+        <p className="text-slate-600 mb-8">
+          {testimonials.subheading}
         </p>
 
         <div className="relative h-60 sm:h-52">
