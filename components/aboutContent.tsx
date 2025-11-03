@@ -17,11 +17,11 @@ const IMAGES: GalleryImage[] = [
     alt: "Safari jeep experience in Yala",
   },
   {
-    src: "/img/img-16.jpg",
+    src: "/img/img-16.JPG",
     alt: "Guests with guide beside jeep",
   },
   {
-    src: "/img/img-17.jpg",
+    src: "/img/img-17.JPG",
     alt: "Lagoon boat ride with guests",
   },
 ];
@@ -87,7 +87,9 @@ export default function AboutContent() {
               <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
                 {about.highlightTitle}
               </h3>
-              <p className="text-slate-700 leading-relaxed">{about.highlightBody}</p>
+              <p className="text-slate-700 leading-relaxed">
+                {about.highlightBody}
+              </p>
             </div>
 
             <ul className="space-y-4 text-sm text-slate-800">

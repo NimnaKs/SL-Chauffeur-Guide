@@ -56,14 +56,14 @@ export default function AboutPage() {
               <div className="space-y-4 sm:space-y-5 translate-y-6 sm:translate-y-10">
                 <div className="overflow-hidden rounded-2xl bg-gray-100 shadow-sm">
                   <img
-                    src="/img/img-16.jpg"
+                    src="/img/img-16.JPG"
                     alt="Guests and guide beside jeep"
                     className="h-full w-full object-cover transition duration-700 hover:scale-105"
                   />
                 </div>
                 <div className="overflow-hidden rounded-2xl bg-gray-100 shadow-sm">
                   <img
-                    src="/img/img-17.jpg"
+                    src="/img/img-17.JPG"
                     alt="Lagoon boat ride with guests"
                     className="h-full w-full object-cover transition duration-700 hover:scale-105"
                   />
