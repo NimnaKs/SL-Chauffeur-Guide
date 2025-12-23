@@ -5,6 +5,7 @@ type DestinationRecord = {
   name: string;
   image: string;
   description: Record<Language, string>;
+  article: Record<Language, string>;
 };
 
 type Destination = {
@@ -12,6 +13,7 @@ type Destination = {
   name: string;
   image: string;
   description: string;
+  article: string;
 };
 
 type MenuLink = {
@@ -147,109 +149,169 @@ const DESTINATION_SOURCE: DestinationRecord[] = [
   {
     id: "sigiriya",
     name: "Sigiriya",
-    image: "/img/sigiriya.png",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/2/2a/Sigiriya_rock%2C_Sri_Lanka.jpg",
     description: {
       en: "Ancient rock fortress with stunning views.",
       de: "Antike Felsenfestung mit atemberaubender Aussicht.",
+    },
+    article: {
+      en: "Climb the Lion Rock early for cooler air and sweeping views over jungle plains. Explore the frescoes, mirror wall, and landscaped water gardens before sunset.",
+      de: "Steigen Sie früh auf den Löwenfelsen, um kühle Luft und weite Ausblicke zu genießen. Entdecken Sie Fresken, Spiegelwand und die königlichen Wassergärten.",
     },
   },
   {
     id: "ella",
     name: "Ella",
-    image: "/img/ella.png",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/0/05/Nine_Arches_Bridge%2C_Ella%2C_Sri_Lanka.jpg",
     description: {
       en: "Tea country hikes and epic viewpoints.",
       de: "Wanderungen im Teeland und spektakuläre Aussichtspunkte.",
+    },
+    article: {
+      en: "Ride the scenic hill-country train and walk to Nine Arches Bridge at golden hour. Hike Little Adam’s Peak for a quick panorama over tea estates.",
+      de: "Fahren Sie mit dem Panorama-Zug durchs Hochland und besuchen Sie die Nine Arches Bridge bei goldenem Licht. Der Little Adam’s Peak bietet einen schnellen Blick über Teeplantagen.",
     },
   },
   {
     id: "kandy",
     name: "Kandy",
-    image: "/img/kandy.png",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/6/6d/Temple_of_the_Tooth%2C_Kandy%2C_Sri_Lanka.jpg",
     description: {
       en: "Cultural heart and sacred Temple of the Tooth.",
       de: "Kulturelles Zentrum mit dem heiligen Zahntempel.",
+    },
+    article: {
+      en: "Visit the Temple of the Tooth for evening puja and walk the lakeside loop. The city’s markets and craft shops are perfect for tea and souvenirs.",
+      de: "Besuchen Sie den Zahntempel zur Abend-Puja und spazieren Sie um den See. Märkte und Handwerksläden eignen sich ideal für Tee und Souvenirs.",
     },
   },
   {
     id: "galle",
     name: "Galle",
-    image: "/img/galle.png",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/4/4e/Galle_fort_lighthouse_2017.jpg",
     description: {
       en: "Historic fort walls and coastal charm.",
       de: "Historische Festungsmauern und Küstenflair.",
+    },
+    article: {
+      en: "Stroll the UNESCO-listed fort ramparts for sea breezes and colonial streets. Sunset by the lighthouse pairs well with cafés and boutique galleries.",
+      de: "Spazieren Sie auf den UNESCO-Festungsmauern mit Meeresbrise und kolonialen Gassen. Sonnenuntergang am Leuchtturm passt zu Cafés und Galerien.",
     },
   },
   {
     id: "mirissa",
     name: "Mirissa",
-    image: "/img/mirissa.png",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/9/9c/Mirissa_Beach%2C_Sri_Lanka.jpg",
     description: {
       en: "Golden bay and whale-watch mornings.",
       de: "Goldene Bucht und Walbeobachtung am Morgen.",
+    },
+    article: {
+      en: "Book a morning whale-watching cruise in season, then unwind on the wide sandy bay. Coconut Tree Hill is the classic Mirissa viewpoint.",
+      de: "Buchen Sie in der Saison eine morgendliche Whale-Watching-Tour und entspannen Sie danach am breiten Sandstrand. Coconut Tree Hill ist der bekannte Aussichtspunkt.",
     },
   },
   {
     id: "nuwara-eliya",
     name: "Nuwara Eliya",
-    image: "/img/nuwara-eliya.png",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/6/6a/Nuwara_Eliya_Town.jpg",
     description: {
       en: "Cool climate, tea estates, colonial vibe.",
       de: "Kühles Klima, Teeplantagen und koloniales Flair.",
+    },
+    article: {
+      en: "Expect crisp air, rolling tea fields, and colonial-era bungalows. Visit Gregory Lake, tour a tea factory, and enjoy a calm evening stroll.",
+      de: "Freuen Sie sich auf frische Luft, Teeberge und koloniale Bungalows. Besuchen Sie den Gregory Lake, eine Teefabrik und genießen Sie den Abendspaziergang.",
     },
   },
   {
     id: "ambuluwawa",
     name: "Ambuluwawa",
-    image: "/img/ambuluwawa.png",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/0/0d/Ambuluwawa_Tower%2C_Sri_Lanka.jpg",
     description: {
       en: "Iconic spiral tower with 360° mountain views.",
       de: "Ikonischer Turm mit 360°-Bergpanorama.",
+    },
+    article: {
+      en: "The white spiral tower climbs steeply to panoramic views of surrounding peaks. It’s a short but thrilling stop near Gampola and Kandy.",
+      de: "Der weiße Spiralturm führt steil zu Rundumblicken auf die Berge. Ein kurzer, aber aufregender Stopp nahe Gampola und Kandy.",
     },
   },
   {
     id: "anuradhapura",
     name: "Anuradhapura",
-    image: "/img/anuradhapura.png",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/9/9f/Ruwanwelisaya_Stupa_Anuradhapura.jpg",
     description: {
       en: "Sacred city of ancient stupas and ruins.",
       de: "Heilige Stadt mit alten Stupas und Ruinen.",
+    },
+    article: {
+      en: "Sri Lanka’s ancient capital is dotted with massive dagobas and sacred sites. Plan time for the Sri Maha Bodhi and the vast monastic ruins.",
+      de: "Die alte Hauptstadt ist voller großer Dagobas und heiliger Stätten. Planen Sie Zeit für den Sri Maha Bodhi und die weitläufigen Ruinen ein.",
     },
   },
   {
     id: "arugambay",
     name: "Arugam Bay",
-    image: "/img/arugambay.png",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/3/34/Arugam_Bay_Beach%2C_Sri_Lanka.jpg",
     description: {
       en: "Laid-back surf town on the east coast.",
       de: "Entspannter Surfort an der Ostküste.",
+    },
+    article: {
+      en: "Known for its point breaks, Arugam Bay is a surfer’s paradise with a chilled vibe. Pair beach time with lagoon safaris or sunrise yoga.",
+      de: "Arugam Bay ist für seine Point Breaks bekannt und bietet eine entspannte Surfer-Atmosphäre. Kombinieren Sie Strandtage mit Lagunen-Safaris oder Yoga bei Sonnenaufgang.",
     },
   },
   {
     id: "awissawella",
     name: "Awissawella",
-    image: "/img/awissawella.png",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/4/4f/Seethawaka_Wet_Zone_Botanical_Garden.jpg",
     description: {
       en: "Gateway town to lush waterfalls and hills.",
       de: "Tor zu üppigen Wasserfällen und Hügeln.",
+    },
+    article: {
+      en: "A convenient base for the Seethawaka Botanical Garden and nearby rainforest hikes. It’s an easy day trip from Colombo for greener scenery.",
+      de: "Ein guter Ausgangspunkt für den Seethawaka Botanical Garden und nahe Regenwaldwanderungen. Ein einfacher Tagesausflug ab Colombo ins Grüne.",
     },
   },
   {
     id: "belihuloya",
     name: "Belihuloya",
-    image: "/img/belihuloya.png",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/7/7b/Samanalawewa_Reservoir_Belihuloya.jpg",
     description: {
       en: "Quiet rivers, trekking, and eco stays.",
       de: "Stille Flüsse, Trekking und Öko-Lodges.",
+    },
+    article: {
+      en: "Stay near rivers and the Samanalawewa Reservoir for peaceful scenery. The area is ideal for gentle hikes, waterfalls, and eco-friendly retreats.",
+      de: "Genießen Sie Flüsse und das Samanalawewa-Reservoir in ruhiger Landschaft. Die Gegend eignet sich für leichte Wanderungen, Wasserfälle und Öko-Retreats.",
     },
   },
   {
     id: "colombo",
     name: "Colombo",
-    image: "/img/colombo.png",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/4/4a/Lotus_Tower_Colombo_Sri_Lanka.jpg",
     description: {
       en: "Cosmopolitan capital with heritage lanes.",
       de: "Kosmopolitische Hauptstadt mit historischen Gassen.",
+    },
+    article: {
+      en: "Mix colonial landmarks with modern cafes, street food, and seafront walks. Galle Face Green and the Lotus Tower show the city’s lively energy.",
+      de: "Kombinieren Sie koloniale Highlights mit Cafés, Street Food und Promenaden. Galle Face Green und der Lotus Tower zeigen Colombos Energie.",
     },
   },
 ];
@@ -426,9 +488,10 @@ const en: Translation = {
     whatsapp: "WhatsApp",
   },
   destinations: {
-    items: DESTINATION_SOURCE.map(({ description, ...rest }) => ({
+    items: DESTINATION_SOURCE.map(({ description, article, ...rest }) => ({
       ...rest,
       description: description.en,
+      article: article.en,
     })),
   },
 };
@@ -605,9 +668,10 @@ const de: Translation = {
     whatsapp: "WhatsApp",
   },
   destinations: {
-    items: DESTINATION_SOURCE.map(({ description, ...rest }) => ({
+    items: DESTINATION_SOURCE.map(({ description, article, ...rest }) => ({
       ...rest,
       description: description.de,
+      article: article.de,
     })),
   },
 };
