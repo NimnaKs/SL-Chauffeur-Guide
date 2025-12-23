@@ -23,33 +23,40 @@ export default function FeaturedDestinations() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {destinations.map((dest) => (
-            <Link
-              key={dest.id}
-              href={`/destinations#${dest.id}`}
-              className="group block rounded-xl overflow-hidden bg-white border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300"
-            >
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <Image
-                  src={dest.image}
-                  alt={dest.name}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
-                />
-                <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
+          {destinations.map((dest) => {
+            const href =
+              dest.id === "sigiriya"
+                ? "/destinations/sigiriya"
+                : `/destinations#${dest.id}`;
 
-              <div className="p-5 space-y-1.5">
-                <h3 className="text-lg font-medium text-slate-900 transition-colors">
-                  {dest.name}
-                </h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  {dest.description}
-                </p>
-              </div>
-            </Link>
-          ))}
+            return (
+              <Link
+                key={dest.id}
+                href={href}
+                className="group block rounded-xl overflow-hidden bg-white border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={dest.image}
+                    alt={dest.name}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
+                  />
+                  <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+
+                <div className="p-5 space-y-1.5">
+                  <h3 className="text-lg font-medium text-slate-900 transition-colors">
+                    {dest.name}
+                  </h3>
+                  <p className="text-sm text-slate-600 leading-relaxed">
+                    {dest.description}
+                  </p>
+                </div>
+              </Link>
+            );
+          })}
         </div>
 
         <div className="mt-16 text-center">
