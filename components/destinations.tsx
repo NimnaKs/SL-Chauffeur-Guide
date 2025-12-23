@@ -45,6 +45,9 @@ export default function FeaturedDestinationsPaginated() {
                 <p className="text-sm text-slate-600 leading-relaxed">
                   {dest.description}
                 </p>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  {dest.article}
+                </p>
               </div>
             </article>
           ))}
