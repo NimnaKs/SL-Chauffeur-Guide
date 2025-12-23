@@ -1,6 +1,7 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
 
 import { useLanguage } from "@/components/LanguageProvider";
@@ -26,30 +27,51 @@ export default function FeaturedDestinationsPaginated() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {items.map((dest) => (
-            <article
-              key={dest.id}
-              className="group block rounded-xl overflow-hidden bg-white border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300"
-            >
-              <div className="relative overflow-hidden">
-                <img
-                  src={dest.image}
-                  alt={dest.name}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
+            (() => {
+              const isSigiriya = dest.id === "sigiriya";
+              const card = (
+                <>
+                  <div className="relative overflow-hidden">
+                    <img
+                      src={dest.image}
+                      alt={dest.name}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
 
-              <div className="p-5 space-y-1.5">
-                <h3 className="text-lg font-medium text-slate-900">{dest.name}</h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  {dest.description}
-                </p>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  {dest.article}
-                </p>
-              </div>
-            </article>
+                  <div className="p-5 space-y-1.5">
+                    <h3 className="text-lg font-medium text-slate-900">
+                      {dest.name}
+                    </h3>
+                    <p className="text-sm text-slate-600 leading-relaxed">
+                      {dest.description}
+                    </p>
+                    <p className="text-sm text-slate-600 leading-relaxed">
+                      {dest.article}
+                    </p>
+                  </div>
+                </>
+              );
+
+              const className =
+                "group block rounded-xl overflow-hidden bg-white border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300";
+
+              return isSigiriya ? (
+                <Link
+                  key={dest.id}
+                  href="/destinations/sigiriya"
+                  className={className}
+                >
+                  {card}
+                </Link>
+              ) : (
+                <article key={dest.id} className={className}>
+                  {card}
+                </article>
+              );
+            })()
           ))}
         </div>
 
