@@ -26,7 +26,7 @@ export default function FeaturedDestinations() {
           {destinations.map((dest) => (
             <Link
               key={dest.id}
-              href={`/destinations#${dest.id}`}
+              href={`/destinations/${dest.id}`}
               className="group block rounded-xl overflow-hidden bg-white border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
