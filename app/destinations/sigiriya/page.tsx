@@ -21,8 +21,8 @@ export default function SigiriyaArticle() {
                     <div className="absolute inset-0 bg-black/45" />
                 </div>
 
-                <div className="mx-auto -mt-24 max-w-5xl px-6">
-                    <div className="rounded-3xl border border-slate-200 bg-white/95 p-7 shadow-sm backdrop-blur">
+                <div className="mx-auto -mt-28 max-w-5xl px-6">
+                    <div className="rounded-3xl border border-slate-200 bg-white/90 p-7 shadow-sm backdrop-blur">
                         <p className="mb-2 inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-sm font-medium text-emerald-800">
                             <span>📍</span> Central Province, Sri Lanka <span className="text-emerald-300">•</span>{" "}
                             UNESCO World Heritage
@@ -79,7 +79,7 @@ export default function SigiriyaArticle() {
                     <div className="mt-4 grid gap-4 sm:grid-cols-3">
                         <div className="sm:col-span-2 overflow-hidden rounded-2xl border border-slate-200">
                             <img
-                                src="/img/sigiriya-2.png"
+                                src="/img/sigiriya/sigiriya-1.webp"
                                 alt="Sigiriya fortress view"
                                 className="h-80 w-full object-cover"
                             />
@@ -88,14 +88,14 @@ export default function SigiriyaArticle() {
                         <div className="grid gap-4">
                             <div className="overflow-hidden rounded-2xl border border-slate-200">
                                 <img
-                                    src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/e8d8dd16-5977-57ee-b0d9-95e251e3e37c/26b02642-acea-5f81-bffe-7266e8c45aa3.jpg"
+                                    src="/img/sigiriya/sigiriya-2.webp"
                                     alt="Sigiriya gardens"
                                     className="h-[9.5rem] w-full object-cover"
                                 />
                             </div>
                             <div className="overflow-hidden rounded-2xl border border-slate-200">
                                 <img
-                                    src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/de45190f-dcb9-5208-8d37-504a2c76f75d/bfbe30ca-408e-5170-857f-6531fd6d6f87.jpg"
+                                    src="/img/sigiriya/sigiriya-3.webp"
                                     alt="Sigiriya panorama"
                                     className="h-[9.5rem] w-full object-cover"
                                 />
@@ -104,7 +104,7 @@ export default function SigiriyaArticle() {
 
                         <div className="sm:col-span-3 overflow-hidden rounded-2xl border border-slate-200">
                             <img
-                                src="https://thedailypackers.com/wp-content/uploads/2025/06/sigiriya-lion-rock-13-palace-1024x577.jpg"
+                                src="/img/sigiriya/sigiriya-4.webp"
                                 alt="Sigiriya Lion Rock plateau ruins"
                                 className="h-64 w-full object-cover"
                             />
@@ -138,14 +138,6 @@ export default function SigiriyaArticle() {
                                 Nearby, the Mirror Wall contains historic visitor inscriptions—an early record of
                                 poetry and travel notes.
                             </p>
-                            <a
-                                className="mt-3 inline-flex text-sm font-medium text-emerald-700 hover:text-emerald-800"
-                                href="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Sigiriya_Frescoes.jpg/800px-Sigiriya_Frescoes.jpg"
-                                target="_blank"
-                                rel="noopener"
-                            >
-                                View a fresco image →
-                            </a>
                         </div>
 
                         <div className="rounded-2xl border border-slate-200 p-6">

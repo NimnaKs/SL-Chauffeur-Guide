@@ -13,7 +13,7 @@ export default function EllaArticle() {
             <header className="relative isolate">
                 <div className="relative h-[56vh] min-h-[420px] w-full overflow-hidden">
                     <img
-                        src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/424cf592-1130-586a-af0b-fa7de18f02c9/55893c7f-19da-5ada-9aaa-affb4cda084f.jpg"
+                        src="/img/destinations.png"
                         alt="Tea ridges and misty hills around Ella"
                         className="absolute inset-0 h-full w-full object-cover"
                     />
@@ -70,7 +70,7 @@ export default function EllaArticle() {
                     <div className="mt-4 grid gap-4 sm:grid-cols-3">
                         <div className="sm:col-span-2 overflow-hidden rounded-2xl border border-slate-200">
                             <img
-                                src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/9087021b-5987-5106-8adb-0ae5e452d5aa/c61ffcdf-ce92-53d1-9ca8-b78abca078fe.jpg"
+                                src="/img/ella/ella-2.webp"
                                 alt="Train line curving toward the Nine Arch Bridge"
                                 className="h-80 w-full object-cover"
                             />
@@ -79,14 +79,14 @@ export default function EllaArticle() {
                         <div className="grid gap-4">
                             <div className="overflow-hidden rounded-2xl border border-slate-200">
                                 <img
-                                    src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/54f8e709-6c9d-50e1-af45-625dccc29bba/c61ffcdf-ce92-53d1-9ca8-b78abca078fe.jpg"
+                                    src="/img/ella/ella-3.webp"
                                     alt="Viewpoint over Ella’s misty hills"
                                     className="h-[9.5rem] w-full object-cover"
                                 />
                             </div>
                             <div className="overflow-hidden rounded-2xl border border-slate-200">
                                 <img
-                                    src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/0b136d21-1ac4-5597-a2f2-8047e7290aaa/c61ffcdf-ce92-53d1-9ca8-b78abca078fe.jpg"
+                                    src="/img/ella/ella-4.webp"
                                     alt="Tea fields and walking paths near Ella"
                                     className="h-[9.5rem] w-full object-cover"
                                 />
@@ -95,7 +95,7 @@ export default function EllaArticle() {
 
                         <div className="sm:col-span-3 overflow-hidden rounded-2xl border border-slate-200">
                             <img
-                                src="/img/ella.jpeg"
+                                src="/img/ella/ella-1.webp"
                                 alt="Sunrise light over hills near Ella"
                                 className="h-64 w-full object-cover"
                             />
@@ -215,7 +215,7 @@ export default function EllaArticle() {
                             Read more →
                         </a>
                         <a
-                            href="https://www.srilanka.travel/ella"
+                            href="/"
                             target="_blank"
                             rel="noopener"
                             className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-50"
