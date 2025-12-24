@@ -101,6 +101,14 @@ export default function SigiriyaArticle() {
                                 />
                             </div>
                         </div>
+
+                        <div className="sm:col-span-3 overflow-hidden rounded-2xl border border-slate-200">
+                            <img
+                                src="https://thedailypackers.com/wp-content/uploads/2025/06/sigiriya-lion-rock-13-palace-1024x577.jpg"
+                                alt="Sigiriya Lion Rock plateau ruins"
+                                className="h-64 w-full object-cover"
+                            />
+                        </div>
                     </div>
                 </section>
 
