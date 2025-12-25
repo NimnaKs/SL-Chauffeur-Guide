@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
 
-const CONTACT_TO_EMAIL =
-  process.env.CONTACT_TO_EMAIL ?? "contact@srilankanchauffeurguide.com";
-const RESEND_API_KEY = process.env.RESEND_API_KEY;
+const CONTACT_TO_EMAIL = "contact@srilankanchauffeurguide.com";
+const RESEND_API_KEY = "re_54EuWk8h_FgrKdayVZzorYT1caP75hFfs";
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
