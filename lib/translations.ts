@@ -97,6 +97,7 @@ type HomeContent = {
     heading: string;
     subheading: string;
     viewAllLabel: string;
+    ctaHint: string;
   };
   socialGallery: {
     heading: string;
@@ -303,6 +304,7 @@ const en: Translation = {
       heading: "Popular Destinations",
       subheading: "Discover Sri Lanka’s most iconic locations",
       viewAllLabel: "View All Destinations",
+      ctaHint: "Open destination details",
     },
     socialGallery: {
       heading: "Follow Our Journey",
@@ -481,6 +483,7 @@ const de: Translation = {
       heading: "Beliebte Reiseziele",
       subheading: "Entdecken Sie Sri Lankas berühmteste Orte",
       viewAllLabel: "Alle Reiseziele ansehen",
+      ctaHint: "Reiseziel öffnen",
     },
     socialGallery: {
       heading: "Begleiten Sie unsere Reise",

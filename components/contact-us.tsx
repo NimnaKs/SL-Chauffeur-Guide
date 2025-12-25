@@ -14,6 +14,10 @@ export default function ContactUs() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle");
+  const [error, setError] = useState<string | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -24,16 +28,49 @@ export default function ContactUs() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    setSubmitted(true);
-    setFormData({
-      name: "",
-      email: "",
-      message: "",
-    });
-    setTimeout(() => setSubmitted(false), 3000);
+    setStatus("submitting");
+    setError(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const body = (await response.json().catch(() => ({}))) as {
+        error?: string;
+        success?: boolean;
+      };
+
+      if (!response.ok) {
+        throw new Error(
+          body.error ?? "We couldn’t send your message. Please try again."
+        );
+      }
+
+      setSubmitted(true);
+      setStatus("success");
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
+
+      setTimeout(() => {
+        setSubmitted(false);
+        setStatus("idle");
+      }, 3000);
+    } catch (err) {
+      const message =
+        err instanceof Error
+          ? err.message
+          : "We couldn’t send your message. Please try again.";
+      setError(message);
+      setStatus("error");
+    }
   };
 
   return (
@@ -56,7 +93,7 @@ export default function ContactUs() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Contact Form */}
           <div className="lg:col-span-1">
-            <div className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="group">
                 <label className="block text-xs font-medium text-slate-500 mb-2 uppercase tracking-wider">
                   {formContent.fields.name.label}
@@ -66,6 +103,7 @@ export default function ContactUs() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
+                  required
                   className="w-full px-0 py-3 text-lg border-0 border-b-2 border-slate-200 focus:border-emerald-600 outline-none transition-all bg-transparent placeholder-slate-300"
                   placeholder={formContent.fields.name.placeholder}
                 />
@@ -80,6 +118,7 @@ export default function ContactUs() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
+                  required
                   className="w-full px-0 py-3 text-lg border-0 border-b-2 border-slate-200 focus:border-emerald-600 outline-none transition-all bg-transparent placeholder-slate-300"
                   placeholder={formContent.fields.email.placeholder}
                 />
@@ -94,6 +133,7 @@ export default function ContactUs() {
                   value={formData.message}
                   onChange={handleChange}
                   rows={5}
+                  required
                   className="w-full px-0 py-3 text-lg border-0 border-b-2 border-slate-200 focus:border-emerald-600 outline-none transition-all bg-transparent resize-none placeholder-slate-300"
                   placeholder={formContent.fields.message.placeholder}
                 />
@@ -101,10 +141,13 @@ export default function ContactUs() {
 
               <div className="pt-4">
                 <button
-                  onClick={handleSubmit}
+                  type="submit"
+                  disabled={status === "submitting"}
                   className="inline-flex items-center justify-center rounded-lg border border-emerald-600 px-8 py-3.5 text-sm font-medium text-emerald-700 hover:bg-emerald-600 hover:text-white transition-all duration-300"
                 >
-                  {formContent.submitLabel}
+                  {status === "submitting"
+                    ? "Sending..."
+                    : formContent.submitLabel}
                 </button>
               </div>
 
@@ -116,7 +159,17 @@ export default function ContactUs() {
                   </span>
                 </div>
               )}
-            </div>
+              {status === "error" && error && (
+                <div
+                  className="flex items-center gap-3 p-4 bg-red-50 border border-red-200 rounded-2xl animate-fade-in"
+                  role="alert"
+                  aria-live="assertive"
+                >
+                  <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
+                  <span className="text-sm text-red-700 font-medium">{error}</span>
+                </div>
+              )}
+            </form>
           </div>
 
           {/* Contact Info */}
