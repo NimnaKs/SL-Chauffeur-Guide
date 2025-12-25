@@ -69,7 +69,7 @@ export default function GalleArticle() {
                     <div className="mt-4 grid gap-4 sm:grid-cols-3">
                         <div className="sm:col-span-2 overflow-hidden rounded-2xl border border-slate-200">
                             <img
-                                src="/img/galle.png"
+                                src="/img/galle/galle-1.webp"
                                 alt="Galle lighthouse and ramparts at sunset"
                                 className="h-80 w-full object-cover"
                             />
@@ -78,14 +78,14 @@ export default function GalleArticle() {
                         <div className="grid gap-4">
                             <div className="overflow-hidden rounded-2xl border border-slate-200">
                                 <img
-                                    src="/img/img-5.png"
+                                    src="/img/galle/galle-2.webp"
                                     alt="Coastal bastion on Galle’s fort walls"
                                     className="h-[9.5rem] w-full object-cover"
                                 />
                             </div>
                             <div className="overflow-hidden rounded-2xl border border-slate-200">
                                 <img
-                                    src="/img/img-5.jpg"
+                                    src="/img/galle/galle-3.webp"
                                     alt="Old town street with colonial buildings"
                                     className="h-[9.5rem] w-full object-cover"
                                 />
@@ -94,7 +94,7 @@ export default function GalleArticle() {
 
                         <div className="sm:col-span-3 overflow-hidden rounded-2xl border border-slate-200">
                             <img
-                                src="/img/galle.jpeg"
+                                src="/img/galle/galle-4.webp"
                                 alt="Fort rampart walkway facing the sea"
                                 className="h-64 w-full object-cover"
                             />

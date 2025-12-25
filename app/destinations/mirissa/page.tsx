@@ -69,7 +69,7 @@ export default function MirissaArticle() {
                     <div className="mt-4 grid gap-4 sm:grid-cols-3">
                         <div className="sm:col-span-2 overflow-hidden rounded-2xl border border-slate-200">
                             <img
-                                src="/img/mirissa.png"
+                                src="/img/mirissa/mirissa-1.webp"
                                 alt="Mirissa Bay with fishing boats at dawn"
                                 className="h-80 w-full object-cover"
                             />
@@ -78,14 +78,14 @@ export default function MirissaArticle() {
                         <div className="grid gap-4">
                             <div className="overflow-hidden rounded-2xl border border-slate-200">
                                 <img
-                                    src="/img/mirissa.jpeg"
+                                    src="/img/mirissa/mirissa-2.webp"
                                     alt="Palms leaning over Mirissa’s shoreline"
                                     className="h-[9.5rem] w-full object-cover"
                                 />
                             </div>
                             <div className="overflow-hidden rounded-2xl border border-slate-200">
                                 <img
-                                    src="/img/img-2.jpg"
+                                    src="/img/mirissa/mirissa-3.webp"
                                     alt="Beach swing and sunrise colors"
                                     className="h-[9.5rem] w-full object-cover"
                                 />
@@ -94,7 +94,7 @@ export default function MirissaArticle() {
 
                         <div className="sm:col-span-3 overflow-hidden rounded-2xl border border-slate-200">
                             <img
-                                src="/img/img-2.jpg"
+                                src="/img/mirissa/mirissa-4.webp"
                                 alt="Crescent beach with gentle waves"
                                 className="h-64 w-full object-cover"
                             />

@@ -69,7 +69,7 @@ export default function NuwaraEliyaArticle() {
                     <div className="mt-4 grid gap-4 sm:grid-cols-3">
                         <div className="sm:col-span-2 overflow-hidden rounded-2xl border border-slate-200">
                             <img
-                                src="/img/nuwara-eliya.png"
+                                src="/img/nuwara-eliya/nuwara-eliya-1.webp"
                                 alt="Tea plantation terraces near Nuwara Eliya"
                                 className="h-80 w-full object-cover"
                             />
@@ -78,14 +78,14 @@ export default function NuwaraEliyaArticle() {
                         <div className="grid gap-4">
                             <div className="overflow-hidden rounded-2xl border border-slate-200">
                                 <img
-                                    src="/img/nuwara-eliya.jpeg"
+                                    src="/img/nuwara-eliya/nuwara-eliya-3.webp"
                                     alt="Misty morning over Gregory Lake"
                                     className="h-[9.5rem] w-full object-cover"
                                 />
                             </div>
                             <div className="overflow-hidden rounded-2xl border border-slate-200">
                                 <img
-                                    src="/img/img-6.jpg"
+                                    src="/img/nuwara-eliya/nuwara-eliya-4.webp"
                                     alt="Tea pickers working on green slopes"
                                     className="h-[9.5rem] w-full object-cover"
                                 />
@@ -94,7 +94,7 @@ export default function NuwaraEliyaArticle() {
 
                         <div className="sm:col-span-3 overflow-hidden rounded-2xl border border-slate-200">
                             <img
-                                src="/img/img-6.jpg"
+                                src="/img/nuwara-eliya/nuwara-eliya-2.webp"
                                 alt="Rolling hills and clouds in the highlands"
                                 className="h-64 w-full object-cover"
                             />
