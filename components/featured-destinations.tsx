@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 
 import { useLanguage } from "@/components/LanguageProvider";
 
@@ -27,6 +28,7 @@ export default function FeaturedDestinations() {
             <Link
               key={dest.id}
               href={`/destinations/${dest.id}`}
+              aria-label={`${dest.name} - ${featured.ctaHint}`}
               className="group block rounded-xl overflow-hidden bg-white border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
@@ -38,6 +40,10 @@ export default function FeaturedDestinations() {
                   sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
                 />
                 <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-2 px-4 py-3 bg-gradient-to-t from-black/60 via-black/30 to-transparent text-white text-sm font-medium">
+                  <span>{featured.ctaHint}</span>
+                  <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </div>
               </div>
 
               <div className="p-5 space-y-1.5">
