@@ -9,6 +9,10 @@ import { LanguageProvider } from "@/components/LanguageProvider";
 export const metadata: Metadata = {
   title: "Sri Lankan Chauffeur Guide",
   description: "Private drivers and tours across Sri Lanka",
+  icons: {
+    icon: "/logo/icon.png",
+    apple: "/logo/icon.png",
+  },
 };
 
 export default function RootLayout({
