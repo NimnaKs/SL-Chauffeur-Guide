@@ -66,7 +66,7 @@ export default function GalleryPage() {
       {/* 🌄 Hero Section */}
       <div className="relative w-full h-[40vh] sm:h-[50vh] lg:h-[60vh] overflow-hidden">
         <img
-          src="/img/img-34.jpg"
+          src="/img/img-34.webp"
           alt="Sri Lanka Travel Gallery"
           className="absolute inset-0 w-full h-full object-cover object-center brightness-90"
         />

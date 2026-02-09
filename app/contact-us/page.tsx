@@ -14,7 +14,7 @@ export default function ContactPage() {
       {/* Hero (non-intrusive, no effect on the form styles) */}
       <div className="relative w-full h-[50vh] sm:h-[60vh] lg:h-[70vh] overflow-hidden">
         <img
-          src="/img/contact-us.jpg"
+          src="/img/contact-us.webp"
           alt="Sri Lanka Tours & Travel"
           className="absolute inset-0 w-full h-full object-cover object-center brightness-90"
         />

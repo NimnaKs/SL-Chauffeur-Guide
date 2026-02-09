@@ -10,8 +10,8 @@ export const metadata: Metadata = {
   title: "Sri Lankan Chauffeur Guide",
   description: "Private drivers and tours across Sri Lanka",
   icons: {
-    icon: "/logo/icon.png",
-    apple: "/logo/icon.png",
+    icon: "/logo/icon.webp",
+    apple: "/logo/icon.webp",
   },
 };
 

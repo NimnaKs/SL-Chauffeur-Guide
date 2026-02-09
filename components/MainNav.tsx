@@ -39,7 +39,7 @@ export default function MainNav() {
       <div className="mx-auto flex h-20 items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center" aria-label="Sri Lankan Chauffeur Guide">
           <Image
-            src="/logo/logo.png"
+            src="/logo/logo.webp"
             alt="Sri Lankan Chauffeur Guide"
             width={120}
             height={40}
@@ -96,7 +96,7 @@ export default function MainNav() {
         >
           <div className="flex items-center justify-between border-b border-gray-100 px-5 py-4">
             <Image
-              src="/logo/logo.png"
+              src="/logo/logo.webp"
               alt="Sri Lankan Chauffeur Guide"
               width={110}
               height={40}

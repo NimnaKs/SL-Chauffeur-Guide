@@ -15,7 +15,7 @@ export default function DestinationsPage() {
       <div className="relative w-full h-[40vh] sm:h-[50vh] lg:h-[60vh] overflow-hidden">
         {/* Background Image */}
         <img
-          src="/img/destinations.png"
+          src="/img/destinations.webp"
           alt="Sri Lanka Tours & Travel"
           className="absolute inset-0 w-full h-full object-cover object-center brightness-90"
         />

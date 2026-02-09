@@ -14,7 +14,7 @@ export default function SigiriyaArticle() {
             <header className="relative isolate">
                 <div className="relative h-[56vh] min-h-[420px] w-full overflow-hidden">
                     <img
-                        src="/img/destinations.png"
+                        src="/img/destinations.webp"
                         alt="Sigiriya Lion Rock rising from the plains"
                         className="absolute inset-0 h-full w-full object-cover"
                     />

@@ -13,7 +13,7 @@ export default function NuwaraEliyaArticle() {
             <header className="relative isolate">
                 <div className="relative h-[56vh] min-h-[420px] w-full overflow-hidden">
                     <img
-                        src="/img/destinations.png"
+                        src="/img/destinations.webp"
                         alt="Tea ridges and cool mist around Nuwara Eliya"
                         className="absolute inset-0 h-full w-full object-cover"
                     />

@@ -9,11 +9,11 @@ type GalleryImage = { src: string; alt: string };
 
 const IMAGES: GalleryImage[] = [
   {
-    src: "/img/img-13.jpg",
+    src: "/img/img-13.webp",
     alt: "Hike with guests in hill country",
   },
   {
-    src: "/img/img-14.jpg",
+    src: "/img/img-14.webp",
     alt: "Safari jeep experience in Yala",
   },
   {

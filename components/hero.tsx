@@ -14,16 +14,16 @@ interface Slide {
 }
 
 const SLIDES: Slide[] = [
-  { id: 1, title: "Sigiriya Rock Fortress", image: "/img/img-1.jpg" },
-  { id: 2, title: "Mirissa Beach", image: "/img/img-2.jpg" },
-  { id: 3, title: "Ella Nine Arch Bridge", image: "/img/img-3.jpg" },
-  { id: 4, title: "Kandy Temple of the Tooth", image: "/img/img-4.jpg" },
-  { id: 5, title: "Galle Fort", image: "/img/img-5.png" },
-  { id: 6, title: "Nuwara Eliya Tea Plantations", image: "/img/img-6.jpg" },
-  { id: 7, title: "Yala National Park", image: "/img/img-7.jpg" },
-  { id: 8, title: "Anuradhapura Ancient City", image: "/img/img-8.jpg" },
-  { id: 9, title: "Polonnaruwa Ancient City", image: "/img/img-30.jpg" },
-  { id: 10, title: "Adams Peak Sri Pada", image: "/img/img-10.jpg" },
+  { id: 1, title: "Sigiriya Rock Fortress", image: "/img/img-1.webp" },
+  { id: 2, title: "Mirissa Beach", image: "/img/img-2.webp" },
+  { id: 3, title: "Ella Nine Arch Bridge", image: "/img/img-3.webp" },
+  { id: 4, title: "Kandy Temple of the Tooth", image: "/img/img-4.webp" },
+  { id: 5, title: "Galle Fort", image: "/img/img-5.webp" },
+  { id: 6, title: "Nuwara Eliya Tea Plantations", image: "/img/img-6.webp" },
+  { id: 7, title: "Yala National Park", image: "/img/img-7.webp" },
+  { id: 8, title: "Anuradhapura Ancient City", image: "/img/img-8.webp" },
+  { id: 9, title: "Polonnaruwa Ancient City", image: "/img/img-30.webp" },
+  { id: 10, title: "Adams Peak Sri Pada", image: "/img/img-10.webp" },
 ];
 
 // Clone 1 & 2 at end to avoid black gap on forward slide

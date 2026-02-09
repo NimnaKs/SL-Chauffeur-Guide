@@ -13,7 +13,7 @@ export default function AboutPage() {
       {/* 🌄 Hero Section */}
       <div className="relative w-full h-[40vh] sm:h-[50vh] lg:h-[60vh] overflow-hidden">
         <img
-          src="/img/img-11.jpg"
+          src="/img/img-11.webp"
           alt="Sri Lanka Tours & Travel"
           className="absolute inset-0 w-full h-full object-cover object-center brightness-90"
         />
@@ -39,14 +39,14 @@ export default function AboutPage() {
               <div className="space-y-4 sm:space-y-5">
                 <div className="overflow-hidden rounded-2xl bg-gray-100 shadow-sm">
                   <img
-                    src="/img/img-13.jpg"
+                    src="/img/img-13.webp"
                     alt="Hill country hike"
                     className="h-full w-full object-cover transition duration-700 hover:scale-105"
                   />
                 </div>
                 <div className="overflow-hidden rounded-2xl bg-gray-100 shadow-sm translate-y-2 sm:translate-y-4">
                   <img
-                    src="/img/img-14.jpg"
+                    src="/img/img-14.webp"
                     alt="Safari jeep experience"
                     className="h-full w-full object-cover transition duration-700 hover:scale-105"
                   />

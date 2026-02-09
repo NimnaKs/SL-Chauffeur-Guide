@@ -14,7 +14,7 @@ export default function KandyArticle() {
             <header className="relative isolate">
                 <div className="relative h-[56vh] min-h-[420px] w-full overflow-hidden">
                     <img
-                        src="/img/destinations.png"
+                        src="/img/destinations.webp"
                         alt="Kandy city and lake in Sri Lanka’s hill country"
                         className="absolute inset-0 h-full w-full object-cover"
                     />

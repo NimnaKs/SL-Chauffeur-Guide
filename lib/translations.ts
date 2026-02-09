@@ -148,7 +148,7 @@ const DESTINATION_SOURCE: DestinationRecord[] = [
   {
     id: "sigiriya",
     name: "Sigiriya",
-    image: "/img/sigiriya.png",
+    image: "/img/sigiriya.webp",
     description: {
       en: "Ancient rock fortress with stunning views.",
       de: "Antike Felsenfestung mit atemberaubender Aussicht.",
@@ -157,7 +157,7 @@ const DESTINATION_SOURCE: DestinationRecord[] = [
   {
     id: "ella",
     name: "Ella",
-    image: "/img/ella.png",
+    image: "/img/ella.webp",
     description: {
       en: "Tea country hikes and epic viewpoints.",
       de: "Wanderungen im Teeland und spektakuläre Aussichtspunkte.",
@@ -166,7 +166,7 @@ const DESTINATION_SOURCE: DestinationRecord[] = [
   {
     id: "kandy",
     name: "Kandy",
-    image: "/img/kandy.png",
+    image: "/img/kandy.webp",
     description: {
       en: "Cultural heart and sacred Temple of the Tooth.",
       de: "Kulturelles Zentrum mit dem heiligen Zahntempel.",
@@ -175,7 +175,7 @@ const DESTINATION_SOURCE: DestinationRecord[] = [
   {
     id: "galle",
     name: "Galle",
-    image: "/img/galle.png",
+    image: "/img/galle.webp",
     description: {
       en: "Historic fort walls and coastal charm.",
       de: "Historische Festungsmauern und Küstenflair.",
@@ -184,7 +184,7 @@ const DESTINATION_SOURCE: DestinationRecord[] = [
   {
     id: "mirissa",
     name: "Mirissa",
-    image: "/img/mirissa.png",
+    image: "/img/mirissa.webp",
     description: {
       en: "Golden bay and whale-watch mornings.",
       de: "Goldene Bucht und Walbeobachtung am Morgen.",
@@ -193,7 +193,7 @@ const DESTINATION_SOURCE: DestinationRecord[] = [
   {
     id: "nuwara-eliya",
     name: "Nuwara Eliya",
-    image: "/img/nuwara-eliya.png",
+    image: "/img/nuwara-eliya.webp",
     description: {
       en: "Cool climate, tea estates, colonial vibe.",
       de: "Kühles Klima, Teeplantagen und koloniales Flair.",
@@ -202,7 +202,7 @@ const DESTINATION_SOURCE: DestinationRecord[] = [
   {
     id: "ambuluwawa",
     name: "Ambuluwawa",
-    image: "/img/ambuluwawa.png",
+    image: "/img/ambuluwawa.webp",
     description: {
       en: "Iconic spiral tower with 360° mountain views.",
       de: "Ikonischer Turm mit 360°-Bergpanorama.",
@@ -211,7 +211,7 @@ const DESTINATION_SOURCE: DestinationRecord[] = [
   {
     id: "anuradhapura",
     name: "Anuradhapura",
-    image: "/img/anuradhapura.png",
+    image: "/img/anuradhapura.webp",
     description: {
       en: "Sacred city of ancient stupas and ruins.",
       de: "Heilige Stadt mit alten Stupas und Ruinen.",
@@ -220,7 +220,7 @@ const DESTINATION_SOURCE: DestinationRecord[] = [
   {
     id: "arugambay",
     name: "Arugam Bay",
-    image: "/img/arugambay.png",
+    image: "/img/arugambay.webp",
     description: {
       en: "Laid-back surf town on the east coast.",
       de: "Entspannter Surfort an der Ostküste.",
@@ -229,7 +229,7 @@ const DESTINATION_SOURCE: DestinationRecord[] = [
   {
     id: "awissawella",
     name: "Awissawella",
-    image: "/img/awissawella.png",
+    image: "/img/awissawella.webp",
     description: {
       en: "Gateway town to lush waterfalls and hills.",
       de: "Tor zu üppigen Wasserfällen und Hügeln.",
@@ -238,7 +238,7 @@ const DESTINATION_SOURCE: DestinationRecord[] = [
   {
     id: "belihuloya",
     name: "Belihuloya",
-    image: "/img/belihuloya.png",
+    image: "/img/belihuloya.webp",
     description: {
       en: "Quiet rivers, trekking, and eco stays.",
       de: "Stille Flüsse, Trekking und Öko-Lodges.",
@@ -247,7 +247,7 @@ const DESTINATION_SOURCE: DestinationRecord[] = [
   {
     id: "colombo",
     name: "Colombo",
-    image: "/img/colombo.png",
+    image: "/img/colombo.webp",
     description: {
       en: "Cosmopolitan capital with heritage lanes.",
       de: "Kosmopolitische Hauptstadt mit historischen Gassen.",

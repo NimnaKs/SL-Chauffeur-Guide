@@ -13,7 +13,7 @@ export default function GalleArticle() {
             <header className="relative isolate">
                 <div className="relative h-[56vh] min-h-[420px] w-full overflow-hidden">
                     <img
-                        src="/img/destinations.png"
+                        src="/img/destinations.webp"
                         alt="Galle Fort walls facing the Indian Ocean"
                         className="absolute inset-0 h-full w-full object-cover"
                     />

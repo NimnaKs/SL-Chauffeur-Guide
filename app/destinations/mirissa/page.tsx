@@ -13,7 +13,7 @@ export default function MirissaArticle() {
             <header className="relative isolate">
                 <div className="relative h-[56vh] min-h-[420px] w-full overflow-hidden">
                     <img
-                        src="/img/destinations.png"
+                        src="/img/destinations.webp"
                         alt="Mirissa’s palm-fringed bay at sunrise"
                         className="absolute inset-0 h-full w-full object-cover"
                     />
