@@ -1,8 +1,6 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
 
-"use client";
-
 import { useEffect, useState } from "react";
 import { Instagram } from "lucide-react";
 
@@ -11,17 +9,27 @@ import { useLanguage } from "@/components/LanguageProvider";
 type FeedPost = {
   id: string;
   mediaType: "IMAGE" | "CAROUSEL_ALBUM" | string;
-  mediaUrl: string;
+  mediaUrl?: string;
   caption?: string;
   permalink?: string;
+  sizes?: {
+    large?: { mediaUrl?: string };
+    medium?: { mediaUrl?: string };
+    small?: { mediaUrl?: string };
+  };
   children?: {
     id: string;
     mediaType: string;
-    mediaUrl: string;
+    mediaUrl?: string;
+    sizes?: {
+      large?: { mediaUrl?: string };
+      medium?: { mediaUrl?: string };
+      small?: { mediaUrl?: string };
+    };
   }[];
 };
 
-const FEED_URL = "https://feeds.behold.so/U14s3stbDdDIGlz4xwbt";
+const FEED_URL = "https://feeds.behold.so/otiEGUSGj3Ryx0PIF2iJ";
 
 export default function GalleryPage() {
   const { content } = useLanguage();
@@ -39,10 +47,21 @@ export default function GalleryPage() {
         const posts: FeedPost[] = data.posts ?? [];
 
         const mapped = posts.map((p) => {
-          const img =
+          const firstChild =
             p.mediaType === "CAROUSEL_ALBUM" && p.children?.length
-              ? p.children[0].mediaUrl
-              : p.mediaUrl;
+              ? p.children[0]
+              : null;
+          const img =
+            firstChild?.mediaUrl ??
+            firstChild?.sizes?.large?.mediaUrl ??
+            firstChild?.sizes?.medium?.mediaUrl ??
+            firstChild?.sizes?.small?.mediaUrl ??
+            p.mediaUrl ??
+            p.sizes?.large?.mediaUrl ??
+            p.sizes?.medium?.mediaUrl ??
+            p.sizes?.small?.mediaUrl ??
+            "/placeholder.svg";
+
           return {
             id: p.id,
             image: img,

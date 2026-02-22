@@ -9,13 +9,23 @@ import { useLanguage } from "@/components/LanguageProvider";
 type FeedPost = {
   id: string;
   mediaType: "IMAGE" | "CAROUSEL_ALBUM" | string;
-  mediaUrl: string;
+  mediaUrl?: string;
   caption?: string;
   permalink?: string;
+  sizes?: {
+    large?: { mediaUrl?: string };
+    medium?: { mediaUrl?: string };
+    small?: { mediaUrl?: string };
+  };
   children?: {
     id: string;
     mediaType: string;
-    mediaUrl: string;
+    mediaUrl?: string;
+    sizes?: {
+      large?: { mediaUrl?: string };
+      medium?: { mediaUrl?: string };
+      small?: { mediaUrl?: string };
+    };
   }[];
 };
 
@@ -34,7 +44,7 @@ const FALLBACK_ITEMS = [
   },
 ];
 
-const FEED_URL = "https://feeds.behold.so/U14s3stbDdDIGlz4xwbt";
+const FEED_URL = "https://feeds.behold.so/otiEGUSGj3Ryx0PIF2iJ";
 
 export default function SocialGallery() {
   const { content } = useLanguage();
@@ -58,10 +68,20 @@ export default function SocialGallery() {
         const posts: FeedPost[] = data.posts ?? [];
 
         const mapped = posts.map((post) => {
-          const img =
+          const firstChild =
             post.mediaType === "CAROUSEL_ALBUM" && post.children?.length
-              ? post.children[0].mediaUrl
-              : post.mediaUrl;
+              ? post.children[0]
+              : null;
+          const img =
+            firstChild?.mediaUrl ??
+            firstChild?.sizes?.large?.mediaUrl ??
+            firstChild?.sizes?.medium?.mediaUrl ??
+            firstChild?.sizes?.small?.mediaUrl ??
+            post.mediaUrl ??
+            post.sizes?.large?.mediaUrl ??
+            post.sizes?.medium?.mediaUrl ??
+            post.sizes?.small?.mediaUrl ??
+            "/placeholder.svg";
 
           return {
             id: post.id,
@@ -73,7 +93,8 @@ export default function SocialGallery() {
           };
         });
 
-        if (mapped.length > 0) setItems(mapped);
+        const valid = mapped.filter((item) => item.image);
+        if (valid.length > 0) setItems(valid);
       } catch (err) {
         console.warn("Could not load Instagram feed:", err);
       }
