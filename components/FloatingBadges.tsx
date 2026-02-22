@@ -6,9 +6,9 @@ export default function FloatingBadges() {
   const { content } = useLanguage();
   const labels = content.floatingBadges;
   const WHATSAPP_LINK =
-    "https://wa.me/94768539902?text=Hello%20I'm%20interested%20in%20a%20tour%20package";
+    "https://wa.me/94763533284?text=Hello%20I'm%20interested%20in%20a%20tour%20package";
   const TRIPADVISOR_LINK =
-    "https://www.tripadvisor.com/Attraction_Review-g293962-d0000000";
+    "https://www.tripadvisor.com/Attraction_Review-g304138-d34193274-Reviews-Sri_Lankan_Chauffeur_Guide-Kandy_Kandy_District_Central_Province.html";
 
   return (
     <div className="fixed right-4 md:right-6 bottom-6 z-50 flex flex-col items-center gap-3">

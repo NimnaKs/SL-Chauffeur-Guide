@@ -95,7 +95,7 @@ const Footer = () => {
           <div className="flex items-center gap-3 text-xs text-slate-400">
             <span>WhatsApp:</span>
             <a
-              href="https://wa.me/94768539902"
+              href="https://wa.me/94763533284"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-white transition"

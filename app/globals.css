@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@source not "../.tmp";
 
 /* leftward marquee */
 @keyframes marquee {

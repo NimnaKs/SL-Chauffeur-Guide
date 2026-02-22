@@ -6,12 +6,15 @@ const RESEND_API_URL = "https://api.resend.com/emails";
 export async function POST(req: Request) {
   try {
     const { name, email, message } = await req.json();
+    const safeName = String(name ?? "").trim();
+    const safeEmail = String(email ?? "").trim().toLowerCase();
+    const safeMessage = String(message ?? "").trim();
 
-    if (!name || !email || !message) {
+    if (!safeName || !safeEmail || !safeMessage) {
       return NextResponse.json({ error: "Missing fields" }, { status: 400 });
     }
 
-    if (!emailPattern.test(email)) {
+    if (!emailPattern.test(safeEmail)) {
       return NextResponse.json({ error: "Invalid email" }, { status: 400 });
     }
 
@@ -27,12 +30,23 @@ export async function POST(req: Request) {
       );
     }
 
+    const normalizedMessage = safeMessage.replace(/\r\n/g, "\n");
     const html = `
-      <h2>New Contact Message</h2>
-      <p><strong>Name:</strong> ${escapeHtml(name)}</p>
-      <p><strong>Email:</strong> ${escapeHtml(email)}</p>
-      <p>${escapeHtml(message).replace(/\n/g, "<br/>")}</p>
-    `;
+      <h2>New Tour Request</h2>
+      <p><strong>Name:</strong> ${escapeHtml(safeName)}</p>
+      <p><strong>Email:</strong> ${escapeHtml(safeEmail)}</p>
+      <p><strong>Message:</strong></p>
+      <p>${escapeHtml(normalizedMessage).replace(/\n/g, "<br/>")}</p>
+    `.trim();
+    const text = [
+      "New Tour Request",
+      "",
+      `Name: ${safeName}`,
+      `Email: ${safeEmail}`,
+      "",
+      "Message:",
+      normalizedMessage,
+    ].join("\n");
 
     const resendResponse = await fetch(RESEND_API_URL, {
       method: "POST",
@@ -43,9 +57,13 @@ export async function POST(req: Request) {
       body: JSON.stringify({
         from,
         to: [to],
-        reply_to: email,
-        subject: `New contact message from ${name}`,
+        reply_to: safeEmail,
+        subject: `New Tour Request from ${safeName}`,
         html,
+        text,
+        headers: {
+          "X-Entity-Ref-ID": `contact-${Date.now()}`,
+        },
       }),
     });
 

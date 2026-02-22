@@ -214,7 +214,7 @@ export default function ContactUs() {
               </a>
 
               <a
-                href="https://wa.me/94768539902"
+                href="https://wa.me/94763533284"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-start gap-4 p-4 rounded-2xl hover:bg-white transition-all"

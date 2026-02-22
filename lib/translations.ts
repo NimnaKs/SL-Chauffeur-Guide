@@ -257,8 +257,8 @@ const DESTINATION_SOURCE: DestinationRecord[] = [
 
 const sharedContact = {
   email: "srilankanchauffeurg@gmail.com",
-  phone: "+94 76 853 9902",
-  location: "Kalutara North, Sri Lanka",
+  phone: "+94 76 353 3284",
+  location: "No 161, Hatangala Road, Nahinna, Kalutara, Sri Lanka",
 };
 
 const en: Translation = {
@@ -342,7 +342,7 @@ const en: Translation = {
       whatsappValue: "Chat with us",
       locationLabel: "Location",
       locationValue:
-        "151/2/1, Weniwelkatiyagama, Nagoda, Dodangoda, Kalutara North, Sri Lanka",
+        "No 161, Hatangala Road, Nahinna, Kalutara, Sri Lanka",
     },
   },
   pages: {
@@ -407,7 +407,7 @@ const en: Translation = {
     infoLinks: [
       {
         label: "WhatsApp",
-        href: "https://wa.me/94768539902",
+        href: "https://wa.me/94763533284",
         external: true,
       },
       {
@@ -417,7 +417,7 @@ const en: Translation = {
       },
       {
         label: "TripAdvisor",
-        href: "https://www.tripadvisor.com/Attraction_Review-g293962-d0000000",
+        href: "https://www.tripadvisor.com/Attraction_Review-g304138-d34193274-Reviews-Sri_Lankan_Chauffeur_Guide-Kandy_Kandy_District_Central_Province.html",
         external: true,
       },
     ],
@@ -449,7 +449,7 @@ const de: Translation = {
   topBar: {
     email: sharedContact.email,
     phone: sharedContact.phone,
-    location: "Kalutara North, Sri Lanka",
+    location: "No 161, Hatangala Road, Nahinna, Kalutara, Sri Lanka",
   },
   hero: {
     heading: "Planen Sie Ihre Sri-Lanka-Reise",
@@ -522,7 +522,7 @@ const de: Translation = {
       whatsappValue: "Mit uns chatten",
       locationLabel: "Standort",
       locationValue:
-        "151/2/1, Weniwelkatiyagama, Nagoda, Dodangoda, Kalutara North, Sri Lanka",
+        "No 161, Hatangala Road, Nahinna, Kalutara, Sri Lanka",
     },
   },
   pages: {
@@ -587,7 +587,7 @@ const de: Translation = {
     infoLinks: [
       {
         label: "WhatsApp",
-        href: "https://wa.me/94768539902",
+        href: "https://wa.me/94763533284",
         external: true,
       },
       {
@@ -597,7 +597,7 @@ const de: Translation = {
       },
       {
         label: "TripAdvisor",
-        href: "https://www.tripadvisor.com/Attraction_Review-g293962-d0000000",
+        href: "https://www.tripadvisor.com/Attraction_Review-g304138-d34193274-Reviews-Sri_Lankan_Chauffeur_Guide-Kandy_Kandy_District_Central_Province.html",
         external: true,
       },
     ],
