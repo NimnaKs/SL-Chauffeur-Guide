@@ -1,43 +1,66 @@
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const RESEND_API_URL = "https://api.resend.com/emails";
 
 export async function POST(req: Request) {
-  const { name, email, message } = await req.json();
+  try {
+    const { name, email, message } = await req.json();
 
-  if (!name || !email || !message) {
-    return NextResponse.json({ error: "Missing fields" }, { status: 400 });
-  }
+    if (!name || !email || !message) {
+      return NextResponse.json({ error: "Missing fields" }, { status: 400 });
+    }
 
-  if (!emailPattern.test(email)) {
-    return NextResponse.json({ error: "Invalid email" }, { status: 400 });
-  }
+    if (!emailPattern.test(email)) {
+      return NextResponse.json({ error: "Invalid email" }, { status: 400 });
+    }
 
-  const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port: Number(process.env.SMTP_PORT),
-    secure: false,
-    auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
-    },
-  });
+    const resendApiKey = process.env.RESEND_API_KEY;
+    const to = process.env.CONTACT_TO_EMAIL;
+    const from =
+      process.env.CONTACT_FROM_EMAIL ?? "Sri Lankan Chauffeur Guide <onboarding@resend.dev>";
 
-  await transporter.sendMail({
-    from: `"Sri Lankan Chauffeur Guide" <${process.env.SMTP_USER}>`,
-    to: process.env.CONTACT_TO_EMAIL,
-    replyTo: email,
-    subject: `New contact message from ${name}`,
-    html: `
+    if (!resendApiKey || !to) {
+      return NextResponse.json(
+        { error: "Email service is not configured" },
+        { status: 500 }
+      );
+    }
+
+    const html = `
       <h2>New Contact Message</h2>
       <p><strong>Name:</strong> ${escapeHtml(name)}</p>
       <p><strong>Email:</strong> ${escapeHtml(email)}</p>
       <p>${escapeHtml(message).replace(/\n/g, "<br/>")}</p>
-    `,
-  });
+    `;
 
-  return NextResponse.json({ success: true });
+    const resendResponse = await fetch(RESEND_API_URL, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${resendApiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from,
+        to: [to],
+        reply_to: email,
+        subject: `New contact message from ${name}`,
+        html,
+      }),
+    });
+
+    if (!resendResponse.ok) {
+      const errorText = await resendResponse.text();
+      return NextResponse.json(
+        { error: `Failed to send email: ${errorText}` },
+        { status: 502 }
+      );
+    }
+
+    return NextResponse.json({ success: true });
+  } catch {
+    return NextResponse.json({ error: "Unexpected server error" }, { status: 500 });
+  }
 }
 
 function escapeHtml(str: string) {

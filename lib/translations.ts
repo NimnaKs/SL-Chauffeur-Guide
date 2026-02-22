@@ -256,7 +256,7 @@ const DESTINATION_SOURCE: DestinationRecord[] = [
 ];
 
 const sharedContact = {
-  email: "contact@srilankanchauffeurguide.com",
+  email: "srilankanchauffeurg@gmail.com",
   phone: "+94 76 853 9902",
   location: "Kalutara North, Sri Lanka",
 };
