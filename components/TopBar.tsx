@@ -14,9 +14,9 @@ import { PiMapPinFill } from "react-icons/pi";
 import { useLanguage } from "@/components/LanguageProvider";
 
 const SOCIAL_LINKS = {
-  facebook: "https://www.facebook.com/people/Sri-Lankan-Chauffeur-Guide/61557670539868/",
+  facebook: "https://www.facebook.com/share/17eaSjCoqM/",
   twitter: "https://x.com/slchauffeur",
-  instagram: "https://www.instagram.com/srilankanchauffeurguide",
+  instagram: "https://www.instagram.com/slchauffeurguide/",
   pinterest: "https://www.pinterest.com/srilankanchauffeurguide/",
   tiktok: "https://www.tiktok.com/@srilankanchauffeurguide",
 };

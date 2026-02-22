@@ -67,7 +67,7 @@ export default function GalleryPage() {
             image: img,
             caption: p.caption?.split("\n")[0] ?? "View on Instagram",
             link:
-              p.permalink ?? "https://instagram.com/srilankanchauffeurguide",
+              p.permalink ?? "https://www.instagram.com/slchauffeurguide/",
           };
         });
 
@@ -142,7 +142,7 @@ export default function GalleryPage() {
             {page.ctaPrompt}
           </p>
           <a
-            href="https://www.instagram.com/srilankanchauffeurguide"
+            href="https://www.instagram.com/slchauffeurguide/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 rounded-lg border border-emerald-600 bg-emerald-600 px-8 py-3.5 text-sm font-medium text-white hover:bg-emerald-700 hover:border-emerald-700 transition-all duration-300"

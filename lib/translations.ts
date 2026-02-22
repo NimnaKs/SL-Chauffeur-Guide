@@ -412,7 +412,7 @@ const en: Translation = {
       },
       {
         label: "Instagram",
-        href: "https://www.instagram.com/srilankanchauffeurguide",
+        href: "https://www.instagram.com/slchauffeurguide/",
         external: true,
       },
       {
@@ -592,7 +592,7 @@ const de: Translation = {
       },
       {
         label: "Instagram",
-        href: "https://www.instagram.com/srilankanchauffeurguide",
+        href: "https://www.instagram.com/slchauffeurguide/",
         external: true,
       },
       {
